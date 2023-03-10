@@ -6,7 +6,7 @@
       </div>
     </div>
     <Types :types="types1">
-      <img clase="image" src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d91bb6cf7da0947e8a6e50e03f4daf06.jpg"/>
+      <img class="image" src="https://cdn.cnbj1.fds.api.mi-img.com/mi-mall/d91bb6cf7da0947e8a6e50e03f4daf06.jpg"/>
     </Types>
   </div>
 </template>
@@ -43,7 +43,7 @@ const loadProducts = async () => {
       },
       {
         title: 'Android',
-        data: ret
+        data: []
       }
     ]
   }
@@ -64,6 +64,6 @@ onMounted(() => {
   }
 }
 .image {
-  width: 10%;
+  width: 100%;
 }
 </style>

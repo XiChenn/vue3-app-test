@@ -3,7 +3,8 @@
     <div class="top">
       <div class="title">{{props.types.title}}</div>
       <ul class="nav">
-        <li :class="{active:activeIndex === index}" v-for="(item, index) in typesNav" :key="index">{{item}}</li>
+        <li :class="{active:activeIndex === index}" @mouseenter="activeIndex=index"
+            v-for="(item, index) in typesNav" :key="index">{{item}}</li>
       </ul>
     </div>
     <div class="box">
