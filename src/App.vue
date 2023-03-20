@@ -38,9 +38,9 @@ onMounted(() => {
   list-style: none;
   text-decoration: none;
   box-sizing: border-box;
-  font-size: 14px;
 }
 .app {
+  font-size: 14px;
   width: 100vw;
   .main {
     margin: 20px 0;

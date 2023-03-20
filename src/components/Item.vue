@@ -4,7 +4,7 @@
     <div class="title">{{props.item.title}}</div>
     <div class="description">{{props.item.description}}</div>
     <div>
-      <span class="selling_price">${{props.item.price * 0.9}}</span>
+      <span class="selling_price">${{(props.item.price * 0.9).toFixed(2)}}</span>
       <span class="price">${{props.item.price}}</span>
     </div>
     <el-popconfirm title="are you sure?" confirm-button-text="OK" cancel-button-text="Cancel" @confirm="confirmDel(props.item.id)"
@@ -37,6 +37,7 @@ const confirmDel = (id) => {
 
 <style scoped lang="scss">
 .item {
+  cursor: pointer;
   width: 234px;
   height: 300px;
   background: white;
@@ -52,7 +53,6 @@ const confirmDel = (id) => {
   &:hover {
     transform: translate3d(0, -2px, 0);
     box-shadow: 0 15px 30px rgb(0 0 0 / 10%);
-    cursor: pointer;
   }
   img {
     width: 160px;
