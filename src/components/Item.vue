@@ -1,5 +1,5 @@
 <template>
-  <div class="item" :item="props.item">
+  <div class="item" :item="props.item" @click="gotoDetail(props.item.id)" >
     <img :src="props.item.thumbnail" />
     <div class="title">{{props.item.title}}</div>
     <div class="description">{{props.item.description}}</div>
@@ -20,6 +20,10 @@
 
 <script setup>
 import {Close} from '@element-plus/icons-vue'
+import {useRouter} from 'vue-router'
+
+const router = useRouter()
+
 const props = defineProps({
   item: {
     type: Object
@@ -30,6 +34,11 @@ const props = defineProps({
   }
 })
 const emit = defineEmits(['delete'])
+
+const gotoDetail = (id) => {
+  sessionStorage.removeItem('menuActive')
+  router.push('/details?id=' + id)
+}
 const confirmDel = (id) => {
   emit('delete', id)
 }

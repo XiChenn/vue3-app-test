@@ -33,11 +33,13 @@
 </template>
 
 <script setup>
-import {onMounted, ref} from 'vue'
+import {onMounted, provide, ref} from 'vue'
 import { Search } from '@element-plus/icons-vue'
 
 const activeIndex = ref('/')
 const searchText = ref('')
+
+provide('activeIndex', activeIndex)
 
 const select =(e) => {
   sessionStorage.setItem('menuActive', e)
