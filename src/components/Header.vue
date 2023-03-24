@@ -39,7 +39,7 @@
 import Register from './Register.vue'
 import Login from './Login.vue'
 import { ShoppingCartFull } from '@element-plus/icons-vue'
-import { useRouter } from 'vue-router'
+import {useRouter} from 'vue-router'
 import { ref } from 'vue'
 import {useUser} from "../store"
 import {setToken} from "../utils/requests";

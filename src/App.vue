@@ -10,14 +10,23 @@
 </template>
 
 <script setup>
-import {onMounted} from "vue"
+import {onMounted, watch} from "vue"
 import Header from './components/Header.vue'
 import Navigation from './components/Navigation.vue'
 import Footer from './components/Footer.vue'
-import {useUser} from './store'
+import {useMenuActive, useUser} from './store'
 import {setToken} from "./utils/requests";
+import {useRoute} from "vue-router";
 
 const userStore = useUser()
+const route = useRoute()
+const menuActive = useMenuActive()
+
+watch(() => route.path, (val) => {
+  menuActive.setActiveIndex(val)
+}, {
+  immediate: true
+})
 
 onMounted(() => {
   const user = sessionStorage.getItem('user')

@@ -7,7 +7,6 @@
       <div class="menu">
         <el-menu
             :default-active="activeIndex"
-            @select="select"
             class="el-menu-demo"
             mode="horizontal"
             router
@@ -33,24 +32,18 @@
 </template>
 
 <script setup>
-import {onMounted, provide, ref} from 'vue'
+import {computed, ref} from 'vue'
 import { Search } from '@element-plus/icons-vue'
+import {useMenuActive} from "../store";
 
-const activeIndex = ref('/')
+const menuActive = useMenuActive()
+
 const searchText = ref('')
 
-provide('activeIndex', activeIndex)
-
-const select =(e) => {
-  sessionStorage.setItem('menuActive', e)
-}
-
-onMounted(() => {
-  const menuActive = sessionStorage.getItem('menuActive')
-  if (menuActive) {
-    activeIndex.value = menuActive
-  }
+const activeIndex = computed(() => {
+  return menuActive.activeIndex
 })
+
 </script>
 
 <style scoped lang="scss">

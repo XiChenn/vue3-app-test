@@ -25,3 +25,18 @@ export const useUser = defineStore('user', {
     }
   }
 })
+
+export const useMenuActive = defineStore('menuActive', {
+  state: () => {
+    return {
+      activeIndex: sessionStorage.getItem('menuActive') || '/'
+    }
+  },
+
+  actions: {
+    setActiveIndex(val) {
+      sessionStorage.setItem('menuActive', val)
+      this.activeIndex = val
+    }
+  }
+})

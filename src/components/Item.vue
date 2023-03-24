@@ -36,8 +36,7 @@ const props = defineProps({
 const emit = defineEmits(['delete'])
 
 const gotoDetail = (id) => {
-  sessionStorage.removeItem('menuActive')
-  router.push('/details?id=' + id)
+  router.push('/detail?id=' + id)
 }
 const confirmDel = (id) => {
   emit('delete', id)
